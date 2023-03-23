@@ -7,6 +7,7 @@
 /tsconfig.json
 /.npmrc
 /.travis.yml
+/.circleci
 /*.tgz
 !/lib/
 !/README.md
