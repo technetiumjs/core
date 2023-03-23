@@ -43,7 +43,7 @@ workflows:
       - build:
           name: "Build"
           skip: false
-          target: "dist"
+          target: "lib"
           requires:
             - "Unit Test"
             - "E2E Test"
@@ -247,7 +247,7 @@ jobs:
         type: boolean
       target:
         description: "Target directory"
-        default: "dist"
+        default: "lib"
         type: string
     environment:
       TARGET: << parameters.target >>
@@ -276,9 +276,9 @@ jobs:
           command: npm run build
       - run:
           name: Packaging Artifacts
-          command: tar czvf dist.tar.gz "$TARGET"
+          command: tar czvf lib.tar.gz "$TARGET"
       - store_artifacts:
-          path: ~/project/dist.tar.gz
+          path: ~/project/lib.tar.gz
       - persist_to_workspace:
           root: ~/project
           paths:
